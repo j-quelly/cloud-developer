@@ -14,7 +14,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
   app.use(bodyParser.json());
 
   // endpoint for filtering an image
-  app.get('/filteredimage', async (req, res, next) => {
+  app.post('/filteredimage', async (req, res, next) => {
     // validate request
     const { query: { image_url } } = req;
     if (!image_url) {
