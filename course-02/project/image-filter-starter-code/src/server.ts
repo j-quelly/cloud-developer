@@ -30,7 +30,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
     // send file then delete from disk
     res.sendFile(processedImage, (error) => {
       if (error) {
-        next(error);
+        res.status(422).send({ message: 'cannot process image' });
       } else {
         // delete the file from disk
         deleteLocalFiles([processedImage]);
